@@ -29,14 +29,17 @@ class Vindec {
   }
   nhtsaDecode(vin) {
     let uri = `${api.uri}${api.action}${vin}${api.format.json}`
-
+    let a = null
     axios.get(uri)
       .then(res => {
-        console.log(res.data)
+        console.log(res.data.Results)
+        console.log("hello")
+        a = res.data
       })
       .catch(error => {
         console.error(error)
       })
+      return a
   }
 }
 
